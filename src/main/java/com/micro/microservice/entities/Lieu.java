@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -14,7 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Table( name = "Lieu")
 
-public class lieu implements Serializable {
+public class Lieu implements Serializable {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name="idLieu")
@@ -23,5 +25,7 @@ private String nom;
 private String adresse;
 private String codePostal;
 private String ville;
+@OneToMany(cascade = CascadeType.ALL, mappedBy="lieu")
+private Set<Evenement> evenement;
 
 }

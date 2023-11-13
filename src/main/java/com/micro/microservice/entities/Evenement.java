@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Evenement")
-public class evenement implements Serializable {
+public class Evenement implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name="idEvenement")
@@ -23,6 +23,9 @@ public class evenement implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateFin;
     private String description;
+    @ManyToOne
+    Lieu lieu ;
+
 
 
 
