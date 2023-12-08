@@ -25,7 +25,6 @@ private String nom;
 private String adresse;
 private String codePostal;
 private String ville;
-@OneToMany(cascade = CascadeType.ALL, mappedBy="lieu")
-private Set<Evenement> evenement;
+
 
 }
