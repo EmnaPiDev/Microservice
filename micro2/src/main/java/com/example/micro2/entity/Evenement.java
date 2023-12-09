@@ -26,11 +26,9 @@ public class Evenement implements Serializable {
     private Date dateDebut;
     private Date dateFin;
     @ManyToOne
-    @JoinColumn(name = "Lieu_id")
-    private Lieu lieu;
+  
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="evenement")
-    private Set<Sponsor> sponsors;
+  
 
 
     public Evenement(long id, String nomE, String description, Date dateDebut, Date dateFin) {
