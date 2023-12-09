@@ -1,13 +1,12 @@
 package com.micro.microservice.controller;
 import com.micro.microservice.entities.Lieu;
 import com.micro.microservice.service.LieuService;
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+
 @RequestMapping("/lieu")
 public class LieuController {
     LieuService lieuService;
@@ -23,7 +22,7 @@ public class LieuController {
     }
 
     @PostMapping("/add-lieu")
-    public Lieu addEvenement(@RequestBody Lieu e) {
+    public Lieu addLieu(@RequestBody Lieu e) {
         Lieu lieu = lieuService.addLieu(e);
         return lieu;
     }

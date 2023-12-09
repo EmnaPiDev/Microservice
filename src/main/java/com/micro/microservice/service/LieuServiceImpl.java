@@ -2,12 +2,11 @@ package com.micro.microservice.service;
 
 import com.micro.microservice.entities.Lieu;
 import com.micro.microservice.repository.LieuRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@AllArgsConstructor
+
 @Service
 public class LieuServiceImpl implements LieuService{
     LieuRepository lieuRepository;
