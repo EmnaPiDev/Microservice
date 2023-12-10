@@ -25,19 +25,13 @@ public class Evenement implements Serializable {
     private String nomE ,description;
     private Date dateDebut;
     private Date dateFin;
-    @ManyToOne
-  
 
   
 
+  
 
-    public Evenement(long id, String nomE, String description, Date dateDebut, Date dateFin) {
-        this.id = id;
-        this.nomE = nomE;
-        this.description = description;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-    }
+
+
 
 
 }

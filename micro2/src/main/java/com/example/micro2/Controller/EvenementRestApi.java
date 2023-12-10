@@ -1,11 +1,18 @@
 package com.example.micro2.Controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.example.micro2.Service.EvenementServiceImpl;
+import com.example.micro2.entity.Evenement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class EvenementRestApi {
      @Autowired
-    private EvenementService evenementService;
+    private EvenementServiceImpl evenementService;
 
     @GetMapping
     public ResponseEntity<List<Evenement>> getAllEvenements() {
