@@ -38,13 +38,13 @@ public class MediaController {
     }
 
     @DeleteMapping("/{id}")  // Utiliser l'annotation @DeleteMapping pour les requêtes DELETE
-    public void deleteUser(@PathVariable("id") long id) {
+    public void deleteMedia(@PathVariable("id") long id) {
         // Utilisez la méthode deleteById() du UserRepository pour supprimer le media
           mediaService.deleteById(id);
     }
 
     @GetMapping("/retrieve-media/{id}")
-    public Media retrieveUser(@PathVariable("id") Long mediaId) {
+    public Media retrieveMedia(@PathVariable("id") Long mediaId) {
         // Utilisez findById() pour obtenir le media par son ID
         return mediaRepository.findById(mediaId).orElse(null);
     }
@@ -53,4 +53,17 @@ public class MediaController {
         List<Media> medias = mediaService.retrieveAllMedias();
         return new ResponseEntity<>(medias, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}/qr-code")
+    public ResponseEntity<byte[]> generateQRCode(@PathVariable Long id) {
+        Media media = mediaRepository.findById(id).orElse(null);
+        byte[] qrCode = mediaService.generateQRCode(media);
+
+        if (qrCode != null) {
+            return ResponseEntity.ok().header("Content-Disposition", "attachment; filename=qr-code.png").body(qrCode);
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
 }
