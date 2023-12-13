@@ -1,4 +1,4 @@
-export class SponsorMedia {
+export class SponsorModel {
     idSponsor!:number;
     nameSponsor!:string;
     email!:string;
